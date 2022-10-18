@@ -22,11 +22,11 @@ public class Employee {
     public double bonus(int workHours){
         double bonus = 0;
         if(workHours>40){
-            bonus=workHours*30;
+            bonus=(workHours-40)*30;
         }return bonus;
     }
-    public double raiseSalary(int hireYear,double salary,int workHours){
-        double raisesalary=tax(salary)+salary+bonus(workHours);
+    public double raiseSalary(int hireYear,double salary){
+        double raisesalary=salary;
 
         if(2021-hireYear<10){
             raisesalary=(raisesalary*0.05);
@@ -38,17 +38,17 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", salary=" + salary +
-                ", workHours=" + workHours +
-                ", hireYear=" + hireYear +
-                ", tax=" + tax(salary) +
-                ", bonus=" + bonus(workHours) +
-                ", raisesalary=" + raiseSalary(hireYear,salary,workHours) +
-                ", Maas artı vergi artı bonus=" + (tax(salary)+bonus(workHours)+salary)+
-                ", tüm maas=" + (tax(salary)+bonus(workHours)+salary+raiseSalary(hireYear,salary,workHours))+
-                '}';
+        return "Employee:\n" +
+                "Adı :" + name + '\n' +
+                "Maaşı :" + salary +'\n'+
+                "Çalışma Saati :" + workHours+'\n'+
+                "Başlangıç Yılı :" + hireYear +'\n'+
+                "Vergi :" + tax(salary) +'\n'+
+                "Bonus :" + bonus(workHours) +'\n'+
+                "Maaş Artışı :" + raiseSalary(hireYear,salary) +'\n'+
+                "Vergi ve Bonuslar ile birlikte maaş :" + (bonus(workHours)+salary-tax(salary))+'\n'+
+                "Toplam maaş :" + (bonus(workHours)+salary+raiseSalary(hireYear,salary)-tax(salary))
+                ;
     }
 }
 
