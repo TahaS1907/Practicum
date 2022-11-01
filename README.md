@@ -1,2 +1,2 @@
 # Practicum
-Employee Java case1 alıştırması
+Employee Java case 1 exercise
